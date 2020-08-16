@@ -1,87 +1,72 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+import React, { Component } from "react";
 
-import Alert from "react-bootstrap/Alert";
-import Jumbotron from "react-bootstrap/Jumbotron";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/lib/Alert";
+import Jumbotron from "react-bootstrap/lib/Jumbotron";
+import Button from "react-bootstrap/lib/Button";
+// import Container from "react-bootstrap/lib/Container";
+import Grid from "react-bootstrap/lib/Grid";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
 
-class AlertDismissable extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.handleDismiss = this.handleDismiss.bind(this);
-    this.handleShow = this.handleShow.bind(this);
-
-    this.state = {
-      show: true
-    };
-  }
-
-  handleDismiss() {
-    this.setState({ show: false });
-  }
-
-  handleShow() {
-    this.setState({ show: true });
-  }
-
-  render() {
-    if (this.state.show) {
-      return (
-        <Alert bsStyle="danger" onDismiss={this.handleDismiss}>
-          <h4>Oh snap! You got an error!</h4>
-          <p>
-            Change this and that and try again. Duis mollis, est non commodo
-            luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-            Cras mattis consectetur purus sit amet fermentum.
-          </p>
-          <p>
-            <Button bsStyle="danger">Take this action</Button>
-            <span> or </span>
-            <Button onClick={this.handleDismiss}>Hide Alert</Button>
-          </p>
-        </Alert>
-      );
-    }
-
-    return <Button onClick={this.handleShow}>Show Alert</Button>;
-  }
-}
-
-// render(<AlertDismissable />);
-
+console.log(Alert);
 
 function App() {
   return (
-    <div>
-      <Container>
-        <Jumbotron>
-          <h1>Hello, world!</h1>
-          <p>
-            This is a simple hero unit, a simple jumbotron-style component for
-            calling extra attention to featured content or information.
-          </p>
-          <p>
-            <Button>Learn more</Button>
-          </p>
-          <AlertDismissable />
-          {/* <Alert bsstyle="danger">
-            <h4>Oh snap! You got an error!</h4>
-            <p>
-              Change this and that and try again. Duis mollis, est non commodo
-              luctus, nisi erat porttitor ligula, eget lacinia odio sem nec
-              elit. Cras mattis consectetur purus sit amet fermentum.
-            </p>
-            <p>
-              <Button bsstyle="danger">Take this action</Button>
-              <span> or </span>
-              <Button>Hide Alert</Button>
-            </p>
-          </Alert> */}
-        </Jumbotron>
-      </Container>
-    </div>
+    <Grid>
+      <Row className="show-grid">
+        <Col xs={12} md={8}>
+          <code>{"<Col xs={12} md={8} />"};</code>
+        </Col>
+        <Col xs={6} md={4}>
+          <code>{"<Col xs={6} md={4} />"}</code>
+        </Col>
+      </Row>
+      <Row className="show-grid">
+        <Col xs={6} md={4}>
+          <code>{"<Col xs={6} md={4} />"}</code>
+        </Col>
+        <Col xs={6} md={4}>
+          <code>{"<Col xs={6} md={4} />"}</code>
+        </Col>
+        <Col xsHidden md={4}>
+          <code>{"<Col xsHidden md={4} />"}</code>
+        </Col>
+      </Row>
+      <Row className="show-grid">
+        <Col xs={6} xsOffset={6}>
+          <code>{"<Col xs={6} xsOffset={6} />"}</code>
+        </Col>
+      </Row>
+      <Row className="show-grid">
+        <Col md={6} mdPush={6}>
+          <code>{"<Col md={6} mdPush={6} />"}</code>
+        </Col>
+        <Col md={6} mdPull={6}>
+          <code>{"<Col md={6} mdPull={6} />"}</code>
+        </Col>
+      </Row>
+      {/* <Container> */}1
+      <Alert bsStyle="danger">
+        <strong>Holy guacamole!</strong> Best check yo self, you're not looking
+        too good.
+      </Alert>
+      1
+      <Jumbotron>
+        <h1>Hello, world!1321</h1>
+        <Alert>
+          <h4>Oh snap! You got an error!</h4>
+        </Alert>
+        <p>
+          This is a simple hero unit, a simple jumbotron-style component for
+          calling extra attention to featured content or information.
+        </p>
+        <p>
+          <Button>Learn more</Button>
+        </p>
+      </Jumbotron>
+      {/* </Container> */}
+    </Grid>
   );
 }
 
